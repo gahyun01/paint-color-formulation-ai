@@ -155,7 +155,7 @@ Forward Model로 LAB 재구성
 
 ## 모델 출력 예시
 
-![모델 결과](img/model_limitations.png)
+![모델 결과](img/proposed_model_results.png)
 
 예시에서는 입력 LAB `[96.25, -22.434, 77.709]`에 대해 다음 배합을 예측했습니다.
 
@@ -181,6 +181,8 @@ Forward Model로 LAB 재구성
 - 협력사 목표 기준인 `ΔE76 ≤ 0.5`를 만족하는 결과 다수 확인
 
 ### 데이터가 부족한 색상 영역
+
+![모델 한계](img/model_limitations.png)
 
 진한 파란색과 진한 보라색처럼 학습 데이터가 희소한 영역에서는 목표 색상을 제대로 재구성하지 못하는 한계가 나타났습니다.
 
