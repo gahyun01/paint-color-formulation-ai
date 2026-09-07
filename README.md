@@ -82,13 +82,12 @@ Gradient Optimization
 - 동일 배합 그룹 내 LAB 편차가 큰 이상치 제거
 - Kubelka–Munk 이론에서 착안한 혼합 방식과 최적화를 이용한 초기값 보정
 - 학습 가능한 colorant tensor와 residual network를 이용한 베이스별 추가 보정
-- C, D, M, P 베이스별 14개 조색제 LAB 저장
 
 ### 조색제 색상 표현 추정 결과
 
 ![14개 조색제 색상정보](img/color_feature_extraction_14_colors.png) 
 
-발표 자료 기준으로 추정된 조색제 LAB의 평균 오차는 약 `ΔE76 0.01394`, 최대 오차는 약 `ΔE76 0.03004`였습니다.
+추정된 조색제 LAB의 평균 오차는 약 `ΔE76 0.01394`, 최대 오차는 약 `ΔE76 0.03004`였습니다.
 
 ## 2. Forward Model: ratio → LAB
 
@@ -107,7 +106,7 @@ Gradient Optimization
 - 기본 모델, 깊은 정규화 모델, 가중 손실, feature engineering 및 seed ensemble 비교
 - ΔE76과 ΔE2000을 이용한 모델 평가
 
-최종 inverse 파이프라인은 C 베이스의 특성을 학습한 forward model을 고정된 simulator로 사용합니다.
+최종 inverse 파이프라인은 베이스들의 특성을 학습한 forward model을 고정된 simulator로 사용합니다.
 
 ## 3. Inverse Model: LAB → ratio
 
@@ -211,7 +210,6 @@ Forward Model로 LAB 재구성
 - LAB 색공간의 데이터 분포가 균일하지 않고 특정 영역에 집중되어 있음
 - 진한 파란색, 진한 보라색, 짙은 녹색 계열의 학습 데이터가 상대적으로 부족함
 - 데이터가 충분한 영역과 희소한 영역 사이에 성능 편차가 크며, 희소 영역에서 `ΔE76 68.5087`과 같은 높은 오차가 발생함
-- 베이스별 조색 특성이 다르며, 최종 LAB → ratio 추론 파이프라인은 C 베이스를 대상으로 구현됨
 - 모델이 계산한 LAB와 실제 도장·건조 후 측정값 사이에는 추가적인 현장 검증이 필요함
 
 ## 기술 스택
